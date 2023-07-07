@@ -4,7 +4,7 @@ sudo apt-get update
 sudo apt install gcc
 sudo apt install g++
 ```
-
+ ___
 ## 컴파일 방법
 ```
 g++ work.cpp[컴파일 실행]
