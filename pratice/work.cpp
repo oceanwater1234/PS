@@ -1,29 +1,25 @@
 #include<iostream>
+#include<climits>
+#include<string>
+#include<vector>
+#include<algorithm>
 using namespace std;
-int main(void) {
+typedef long long ll;
+ll abs(ll tmp) {
+    if(tmp >= 0) return tmp;
+    else return -1 * tmp;
+}
+int main() {
+	ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
 
-    int t,h,w,n;
-    
-    cin >> t;
-    
-    for(int i = 0; i < t; i++) {
-        cin >> h >> w >> n;
+	int t = 3;
 
-        int cnt = 0,j = 0 ,k = 0;
+	while (t--) {
+		vector<ll> v; 
+        ll n,tmp;
 
-        for(j = 1; j <= w; j++) {
-            for(k = 1; k <= h; k++) {
-                cnt++;
-                if(cnt == n) break;
-            }
-            if(cnt == n) break;
-        }
-
-       
-        if(j >= 10) cout << k << j << endl;
-        else cout << k << "0" << j << endl;
+        cin >> n; 
     }
- 
-
-    return 0;
+			
+   return 0;
 }
