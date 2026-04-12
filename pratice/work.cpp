@@ -1,16 +1,21 @@
 #include <iostream>
 using namespace std;
+int sumNumber(int n) {
+	int sum = 0; 
+
+	while(n) {
+		sum += n % 10;
+		n /= 10;
+	}
+
+	return sum;
+}
 int main() {
-	int x,y;
-	cout << "Enter x and y : ";
-	cin >> x >> y;
+	int n,cnt = 0;
 
-
-	cout << "---------------------\n";
-	cout << "1. Plus\n"; 
-	cout << "2. Minus\n"; 
-	cout << "3. Multipl\n"; 
-	cout << "4. Plus\n"; 
-	cout << "5. Plus\n"; 
+	cout << "input : ";
+	cin >> n;
+	
+	cout << "output : " << sumNumber(n);
     return 0;
 }

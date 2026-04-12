@@ -1,31 +1,42 @@
 #include <iostream>
+#include <string>
 #include <cmath>
 using namespace std;
-void drawCantor(int index, int n) {
-    if (n == 1) {
-        cout << "-";
+void drawCantor(string& line, int start, int length, int depth) {
+    if (depth == 0 || length < 1) return ;
+    
+
+    int third = length / 3;
+
+    for (int i = start + third; i < start + 2 * third; i++) 
+        line[i] = ' ';
+    
+    drawCantor(line, start, third, depth - 1);
+    drawCantor(line, start + 2 * third, third, depth - 1);
+}
+
+void printLevels(int currentDepth, int maxDepth, int totalLength) {
+    string line(totalLength, '-'); 
+
+    drawCantor(line, 0, totalLength, currentDepth);
+    if (currentDepth > maxDepth) {
+        cout << line << endl;
         return;
     }
 
-    int segment = n / 3; // 3등분한 한 구역의 길이
-
-    if (index < segment) drawCantor(index, segment);
-
-    else if (index >= segment && index < segment * 2) cout << " ";
-    else drawCantor(index - segment * 2, segment);
+    printLevels(currentDepth + 1, maxDepth, totalLength);
 }
-int main() {
-    int N;
-    cout << "N을 입력하세요: ";
-    while (cin >> N) {
-        int totalLength = pow(3, N);
 
-        // 한 칸씩 이동하며 해당 칸에 무엇을 찍을지 재귀로 결정
-        for (int i = 0; i < totalLength; i++) {
-            drawCantor(i, totalLength);
-        }
-        cout << "\n\n"; // 가독성을 위해 줄바꿈
-        cout << "N을 입력하세요 (종료하려면 Ctrl+Z): ";
+int main() {
+
+    int n;
+
+    while(cin >> n) {
+        
+        int totalLength = pow(3,n);
+    
+        printLevels(0, n, totalLength);
+
     }
 
     return 0;
