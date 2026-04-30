@@ -1,39 +1,11 @@
-#include <iostream>
-#include <string>
-using namespace std;
+#include<iostream>
+#define NUM 25
+inline void Plus(int a,int b) {
+    std::cout << a << " + " << b << " = " << a + b;
+}
 int main() {
-    // ==========================================
-    // 1. 가장 기본적인 형태 (매개변수 O, 반환값 O)
-    // 반환형을 생략해도 return을 보고 int라는 것을 스스로 알아챕니다.
-    // ==========================================
-    auto add = [](int a, int b) {
-        return a + b;
-    };
+    int b = 20;
     
-    cout << "더하기 결과: " << add(3, 5) << endl;
-
-
-    // ==========================================
-    // 2. 바깥 변수를 가져다 쓰는 형태 (캡처 블록 활용)
-    // ==========================================
-    int bonus = 50; 
-    
-    // 캡처 블록 [bonus] 안에 변수명을 적어주면, 
-    // 람다 함수 내부에서 바깥에 있는 bonus를 읽을 수 있습니다.
-    auto calculateScore = [bonus](int currentScore) {
-        return currentScore + bonus;
-    };
-    
-    cout << "최종 점수: " << calculateScore(100) << endl;
-
-
-    // ==========================================
-    // 3. 변수 저장 없이 그 자리에서 즉시 실행하기
-    // ==========================================
-    // 함수를 정의함과 동시에 끝에 ( )를 붙여 바로 실행해 버립니다.
-    [](string name) {
-        cout << name << "님, 환영합니다!" << endl;
-    }("성민"); // 바로 이곳에서 값을 전달하여 실행
-
+    Plus(NUM, b);
     return 0;
 }
