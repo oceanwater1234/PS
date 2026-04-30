@@ -1,20 +1,39 @@
-#include<iostream>
-#include<cmath>
-#include<iomanip>
-#include<ctime>
-#include"te.h"
+#include <iostream>
+#include <string>
 using namespace std;
 int main() {
-   int n,sum = 0;
-   double average = 0.0;
-   cout << setw(5) << 1;
-   
-   srand(static_cast<int>(time(0)));
-   int p = rand() % 11;
-   while(p != 10) {
-      p = rand() % 11;
-      cout << p << endl;
-   }d
-   
-   return 0;
+    // ==========================================
+    // 1. 가장 기본적인 형태 (매개변수 O, 반환값 O)
+    // 반환형을 생략해도 return을 보고 int라는 것을 스스로 알아챕니다.
+    // ==========================================
+    auto add = [](int a, int b) {
+        return a + b;
+    };
+    
+    cout << "더하기 결과: " << add(3, 5) << endl;
+
+
+    // ==========================================
+    // 2. 바깥 변수를 가져다 쓰는 형태 (캡처 블록 활용)
+    // ==========================================
+    int bonus = 50; 
+    
+    // 캡처 블록 [bonus] 안에 변수명을 적어주면, 
+    // 람다 함수 내부에서 바깥에 있는 bonus를 읽을 수 있습니다.
+    auto calculateScore = [bonus](int currentScore) {
+        return currentScore + bonus;
+    };
+    
+    cout << "최종 점수: " << calculateScore(100) << endl;
+
+
+    // ==========================================
+    // 3. 변수 저장 없이 그 자리에서 즉시 실행하기
+    // ==========================================
+    // 함수를 정의함과 동시에 끝에 ( )를 붙여 바로 실행해 버립니다.
+    [](string name) {
+        cout << name << "님, 환영합니다!" << endl;
+    }("성민"); // 바로 이곳에서 값을 전달하여 실행
+
+    return 0;
 }

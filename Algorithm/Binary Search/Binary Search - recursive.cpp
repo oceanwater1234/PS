@@ -16,7 +16,6 @@ int binarySearch(vector<int> &v,int target , int start , int end) {
         cout << "start : " << start << " end : " << end << "\n";
         return binarySearch(v,target,start,mid - 1);
     }
-   
 }
 int main() {
     vector<int> v = {1,4,5,7,12,31,2,25};
