@@ -5,6 +5,6 @@ int sumNum(int n) {
     return n % 10 + sumNum(n / 10);
 }
 int main() {
-    cout << sumNum(123123);
+    cout << sumNum(1234);
     return 0;
 }
