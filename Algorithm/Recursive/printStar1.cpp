@@ -1,23 +1,17 @@
 #include<iostream>
+#include<string>
 using namespace std;
-void drawStar(int n,int m){
-    if(n == m) return ;
-
-    cout << "*";
-    drawStar(n + 1,m);
+string drawStar(int n) {
+    if(!n) return "";
+    return  "*" + drawStar(n - 1); 
 }
-void StarMain(int n,int m) {
-    if(n == m + 1) return; 
+void mainStar(int n,int m) { 
+    if(n == m + 1) return ;
+    cout << drawStar(n) << "\n";
 
-    drawStar(0,n);
-    cout << "\n";
-
-    StarMain(n + 1,m);
+    mainStar(n + 1,m); 
 }
 int main() {
-    int m;
-
-    cin >> m;
-    StarMain(1,m);
+    mainStar(1,5);
     return 0;
 }
