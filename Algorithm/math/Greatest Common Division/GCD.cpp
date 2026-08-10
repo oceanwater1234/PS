@@ -1,8 +1,7 @@
 #include<iostream>
 using namespace std;
 int gcd(int a,int b){
-    if(!b) return a;
-    return gcd(b,a % b);
+    return b ? gcd(b,a % b) : a;
 }
 int main(void) {
     int a,b;
